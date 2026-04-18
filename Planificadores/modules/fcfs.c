@@ -18,21 +18,19 @@ int compararPorTiempoLlegada(const void *a, const void *b)
     // NOTA: si hay empate, por id ascendente (para que el orden sea determinista)
     const Proceso *p1 = (const Proceso *)a;
     const Proceso *p2 = (const Proceso *)b;
- 
-    
 
     int diffTiempo = (p1->tiempoLlegada > p2->tiempoLlegada) - (p1->tiempoLlegada < p2->tiempoLlegada);
 
-    //En caso de que se encuentre una diferencia lo devolvemos directamente
+    // En caso de que se encuentre una diferencia lo devolvemos directamente
 
-    if (diffTiempo != 0 ){
+    if (diffTiempo != 0)
+    {
         return diffTiempo;
     }
 
-    //Si hay empate, es decir, que diffTiempo sea 0, hacemos lo mismo para el ID
+    // Si hay empate, es decir, que diffTiempo sea 0, hacemos lo mismo para el ID
 
-    return(p1->id > p2->id) - (p1->id < p2-> id);
-
+    return (p1->id > p2->id) - (p1->id < p2->id);
 }
 
 // Función para planificar procesos usando el algoritmo First-Come, First-Served (FCFS)
@@ -50,6 +48,6 @@ void planificarFCFS(procesos_t *procesos)
 
     /*
     Después de esta llamada a qsort, los procesos están ordenados según el algoritmo FCFS, listos para ser procesados en
-    este ordenS.
+    este orden.
     */
 }
