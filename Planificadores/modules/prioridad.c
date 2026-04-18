@@ -158,24 +158,30 @@ void planificarPrioridadesPreemptive(procesos_t *procesos, const char *outputPat
     {
         context.process = nextProcess(procesos, &context);
         // Si no tenemos procesos listos para ejecutar, dejamos pasar un tick.
-        if (context.process == NO_PROCESS_READY)
+        if (context.process == NO_PROCESS_READY && context.prevProcess == NO_PROCESS_READY)
         {
             goto tick;
         }
-        // Pasamos de no ejecutar nada a ejecutar algo
-        if (context.prevProcess == NO_PROCESS_READY)
+        if (context.prevProcess == DONE_PROCESSING && context.prevProcess == NO_PROCESS_READY)
         {
-            context.prevProcess == context.prevProcess;
+            break;
+        }
+        //Pasamos de no ejecutar nada a ejecutar algo
+        if (context.prevProcess == NO_PROCESS_READY && context.process >= 0)
+        {
+            context.prevProcess = context.process;
             context.prevTime = context.time;
         }
-        // En este tick continuamos ejecutando el mismo proceso
-        if (context.process == context.prevProcess)
+         
+        //En este tick continuamos ejecutando el mismo proceso
+
+        if (context.process == context.prevProcess && context.process != DONE_PROCESSING)
         {
-            Proceso *pActual = procesos_get(procesos, context.process);
+            Proceso* pActual = procesos_get(procesos,context.process);
             pActual->duracionRafaga--;
-            // Le quitamos 1 unidad de tiempo de rafaga
-            goto tick; // sumamos el tiempo directamente
+            goto tick;
         }
+
 
         // Cambiamos de proceso, guardamos la ejecución del anterior
         Proceso *p = procesos_get(procesos, context.prevProcess);
