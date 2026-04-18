@@ -1,4 +1,4 @@
-Ejecución iniciada: Sat Apr 18 08:45:38 PM UTC 2026
+Ejecución iniciada: Sat Apr 18 09:19:27 PM UTC 2026
 ejecutando planificador con algoritmo fcfs
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo sjf
@@ -9,7 +9,6 @@ ejecutando planificador con algoritmo prioridad_preemptive
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo rr
 Generando métricas y diagrama de Gantt
-Error generando métricas para rr. Se registra en el log.
 ejecutando planificador con algoritmo fcfs
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo sjf
@@ -20,7 +19,6 @@ ejecutando planificador con algoritmo prioridad_preemptive
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo rr
 Generando métricas y diagrama de Gantt
-Error generando métricas para rr. Se registra en el log.
 ejecutando planificador con algoritmo fcfs
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo sjf
@@ -31,7 +29,6 @@ ejecutando planificador con algoritmo prioridad_preemptive
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo rr
 Generando métricas y diagrama de Gantt
-Error generando métricas para rr. Se registra en el log.
 ejecutando planificador con algoritmo fcfs
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo sjf
@@ -42,7 +39,6 @@ ejecutando planificador con algoritmo prioridad_preemptive
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo rr
 Generando métricas y diagrama de Gantt
-Error generando métricas para rr. Se registra en el log.
 ejecutando planificador con algoritmo fcfs
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo sjf
@@ -53,5 +49,4 @@ ejecutando planificador con algoritmo prioridad_preemptive
 Generando métricas y diagrama de Gantt
 ejecutando planificador con algoritmo rr
 Generando métricas y diagrama de Gantt
-Error generando métricas para rr. Se registra en el log.
 Error generando gráficos de métricas. Se registra en el log.
