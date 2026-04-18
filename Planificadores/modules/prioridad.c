@@ -158,10 +158,24 @@ void planificarPrioridadesPreemptive(procesos_t *procesos, const char *outputPat
     {
         context.process = nextProcess(procesos, &context);
         // Si no tenemos procesos listos para ejecutar, dejamos pasar un tick.
-
+        if (context.process == NO_PROCESS_READY)
+        {
+            goto tick;
+        }
         // Pasamos de no ejecutar nada a ejecutar algo
-
+        if (context.prevProcess == NO_PROCESS_READY)
+        {
+            context.prevProcess == context.prevProcess;
+            context.prevTime = context.time;
+        }
         // En este tick continuamos ejecutando el mismo proceso
+        if (context.process == context.prevProcess)
+        {
+            Proceso *pActual = procesos_get(procesos, context.process);
+            pActual->duracionRafaga--;
+            // Le quitamos 1 unidad de tiempo de rafaga
+            goto tick; // sumamos el tiempo directamente
+        }
 
         // Cambiamos de proceso, guardamos la ejecución del anterior
         Proceso *p = procesos_get(procesos, context.prevProcess);
@@ -173,12 +187,19 @@ void planificarPrioridadesPreemptive(procesos_t *procesos, const char *outputPat
             .fin = context.time,
         };
         guardarFrame(output, &rf);
-
+        // Procedemos a actualizar el contexto del nuevo proceso
         context.prevTime = context.time;
         context.prevProcess = context.process;
 
+        // El nuevo proceso se ejecuta en este tick, le quitamos su rafaga
+        if (context.process != DONE_PROCESSING)
+        {
+            Proceso *pNuevo = procesos_get(procesos, context.process);
+            pNuevo->duracionRafaga--;
+        }
     tick:
         context.time++;
 
     } while (context.process != DONE_PROCESSING);
+    fclose(output);
 }
